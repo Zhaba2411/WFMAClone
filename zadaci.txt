@@ -1,0 +1,13 @@
+Spremanje svega u githob directory, svako u svoj 
+
+1 screen lista zadataka
+-opis, naslov, due date, status (novi, prihvaćen, prioritet), boje ovisno o statusu
+-Filter po datumu za sada, query builder za kasnije
+-Filter po satusu
+-Brisanje filtera
+
+Komentari, dokumenti, karta s prikazom objekta vezanim za bilo koje područje
+-Podatke dobivamo meta podacima i realnim podacima koje treba prikazati 
+-Na karti treba omogućiti prikaz i select svih filtera te ih se može promjeniti u bilo koje vrijeme
+-Prikazati feature za svaki sloj
+
