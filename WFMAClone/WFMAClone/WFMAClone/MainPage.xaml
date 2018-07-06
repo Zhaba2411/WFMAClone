@@ -1,20 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WFMAClone"
              x:Class="WFMAClone.MainPage">
 
-        <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                            <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding Done}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" >
+            <ListView.ItemTemplate>  
+                <DataTemplate>  
+                    <ViewCell Height="90">  
+                        <StackLayout Orientation="Horizontal" Margin="5">  
+                            <StackLayout Orientation="Vertical">  
+                                <StackLayout Orientation="Horizontal"> 
+                                    <Label Text="{Binding JobId}" Font="18"></Label>    
+                                    <Label Text="{Binding Name}" Font="18"></Label>  
+                                </StackLayout>  
 
+                                <Label Text="{Binding JobType}" TextColor="Gray"></Label>
+                                <Label Text="{Binding DueDate}" TextColor="Gray"></Label>
+                            </StackLayout>  
+                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">  
+                                <Label Text="{Binding Status}" VerticalOptions="Start"></Label>  
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="End"> 
+                                    <Label Text="Priority: "></Label>    
+                                    <Label Text="{Binding TaskPriority}"></Label>
+                                </StackLayout>  
+                        </StackLayout>  
+                        </StackLayout>  
+                    </ViewCell>  
+                </DataTemplate>  
+            </ListView.ItemTemplate>  
+        </ListView>
 </ContentPage>
