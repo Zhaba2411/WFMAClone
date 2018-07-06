@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cond="schema?conditionalMethod(parameter)"
              xmlns:local="clr-namespace:WFMAClone"
              x:Class="WFMAClone.MainPage">
 
-        <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" >
+        <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" BackgroundColor="#e8e8e8">
             <ListView.ItemTemplate>  
                 <DataTemplate>  
-                    <ViewCell Height="90">  
-                        <StackLayout Orientation="Horizontal" Margin="5">  
-                            <StackLayout Orientation="Vertical">  
-                                <StackLayout Orientation="Horizontal"> 
-                                    <Label Text="{Binding JobId}" Font="18"></Label>    
-                                    <Label Text="{Binding Name}" Font="18"></Label>  
-                                </StackLayout>  
+                    <ViewCell Height="125"> 
+                        <Frame BorderColor="Black" Margin="2, 7" Padding="10" HasShadow="false" BackgroundColor="#f9f9f9">
+                        <StackLayout Orientation="Vertical">
+                            
+                            <Frame x:Name="statusColor" VerticalOptions="Start" BackgroundColor="Lime" Margin="0" Padding="2" HasShadow="false"></Frame>
+                            <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">  
+                                        <StackLayout Orientation="Horizontal"> 
+                                            <Label Text="{Binding JobId}" Font="18"></Label>    
+                                            <Label Text="{Binding Name}" Font="18"></Label>  
+                                        </StackLayout>  
 
-                                <Label Text="{Binding JobType}" TextColor="Gray"></Label>
-                                <Label Text="{Binding DueDate}" TextColor="Gray"></Label>
-                            </StackLayout>  
-                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">  
-                                <Label Text="{Binding Status}" VerticalOptions="Start"></Label>  
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="End"> 
-                                    <Label Text="Priority: "></Label>    
-                                    <Label Text="{Binding TaskPriority}"></Label>
+                                        <Label Text="{Binding JobType}" TextColor="#3d3d3d"></Label>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="End"> 
+                                            <Label Text="Due Date: " TextColor="#3d3d3d"></Label>
+                                        <Label Text="{Binding DueDate}" TextColor="#3d3d3d"></Label>
+                                        </StackLayout> 
+                                    </StackLayout> 
+                                
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">  
+                                        <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>  
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"> 
+                                            <Label Text="Priority: "></Label>
+                                          <Label Text="{Binding TaskPriority}"></Label>
+                                        </StackLayout> 
+                                    
+                                   </StackLayout>  
                                 </StackLayout>  
-                        </StackLayout>  
-                        </StackLayout>  
+                           </StackLayout>  
+                        </Frame>
                     </ViewCell>  
                 </DataTemplate>  
             </ListView.ItemTemplate>  
