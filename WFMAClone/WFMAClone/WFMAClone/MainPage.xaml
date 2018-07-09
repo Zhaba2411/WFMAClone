@@ -5,11 +5,11 @@
              xmlns:local="clr-namespace:WFMAClone"
              x:Class="WFMAClone.MainPage">
 
-    <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" SeparatorVisibility="None">
+    <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true"  SeparatorVisibility="None">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                <Frame BorderColor="Black" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
+                <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
                     <StackLayout Orientation="Horizontal">
 
                         <StackLayout Orientation="Vertical">

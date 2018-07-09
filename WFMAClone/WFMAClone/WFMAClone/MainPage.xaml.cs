@@ -45,7 +45,7 @@ namespace WFMAClone
 			//Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
 			if (e.SelectedItem != null)
 			{
-				await Navigation.PushAsync(new MyTaskPage
+                await Navigation.PushModalAsync(new MyTaskPage
 				{
 					BindingContext = e.SelectedItem as MyTask
 				});
