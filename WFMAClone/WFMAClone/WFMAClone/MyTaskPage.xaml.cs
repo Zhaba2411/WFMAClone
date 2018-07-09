@@ -25,7 +25,9 @@ namespace WFMAClone
             base.OnAppearing();
 
             RestService restService = new RestService();
-            MyTask taskList = await restService.getTaskByIdAsync(id);
+            MyTask task = await restService.getTaskByIdAsync(id);
+
+            currentTask.BindingContext = task;
         }
 
     }
