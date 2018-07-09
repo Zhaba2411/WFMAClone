@@ -12,17 +12,18 @@ namespace WFMAClone
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MyTaskPage : ContentPage
 	{
-		public MyTaskPage ()
+		public MyTaskPage (int id)
 		{
 			InitializeComponent ();
+            Console.WriteLine(id);
 		}
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            RestService restService = new RestService();
-            MyTask taskList = await restService.getTaskByIdAsync(1);
+            //RestService restService = new RestService();
+            //MyTask taskList = await restService.getTaskByIdAsync(1);
         }
 
     }

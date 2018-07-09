@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:WFMAClone"
              x:Class="WFMAClone.MainPage">
 
-    <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true"  SeparatorVisibility="None">
+    <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true"  SeparatorVisibility="None">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>

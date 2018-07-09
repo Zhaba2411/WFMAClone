@@ -31,6 +31,7 @@ namespace WFMAClone
 			listView.ItemsSource = coloredTasks;
 		}
 
+        /*
 		async void OnItemAdded(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new MyTaskPage
@@ -38,22 +39,24 @@ namespace WFMAClone
 				BindingContext = new MyTaskList()
 			});
 		}
+        */
 
-		async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
+		async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			//((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
+			//((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;x
 			//Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
 			if (e.SelectedItem != null)
 			{
+                var task = e.SelectedItem as ColoredTask;
+                await Navigation.PushModalAsync(new MyTaskPage(task.Id));
 
-                Console.WriteLine("write LINK **");
-                Console.ReadLine();
-
+                /*
                 await Navigation.PushModalAsync(new MyTaskPage
-				{
-					BindingContext = e.SelectedItem as MyTask
-				});
-			}
+                {
+                    BindingContext = e.SelectedItem as MyTask
+                });
+                */
+            }
 		}
 	}
 }
