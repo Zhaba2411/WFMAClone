@@ -57,7 +57,7 @@ namespace WFMAClone
     class TaskWebPart
     {
         public int Id { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
         public string TabName { get; set; }
         public bool IsSystemWebPart { get; set; }
         public string Description { get; set; }

@@ -24,14 +24,8 @@ namespace WFMAClone
         {
             base.OnAppearing();
 
-            Console.WriteLine("****");
-            Console.WriteLine(id);
-            Console.WriteLine("****");
             RestService restService = new RestService();
             MyTask taskList = await restService.getTaskByIdAsync(id);
-
-            //RestService restService = new RestService();
-            //MyTask taskList = await restService.getTaskByIdAsync(1);
         }
 
     }
