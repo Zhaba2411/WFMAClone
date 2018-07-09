@@ -21,7 +21,7 @@ namespace WFMAClone
 
 			RestService restService = new RestService();
 
-			TaskList taskList = await restService.RefreshDataAsync();
+			MyTask currentTask = await restService.RefreshDataAsync();
 			listView.ItemsSource = taskList.Tasks;
 			/*List<MyTask> lista = new List<MyTask>();
 			MyTask t = new MyTask();
@@ -34,7 +34,7 @@ namespace WFMAClone
 		{
 			await Navigation.PushAsync(new MyTaskPage
 			{
-				BindingContext = new MyTask()
+				BindingContext = new MyTaskList()
 			});
 		}
 
@@ -42,11 +42,23 @@ namespace WFMAClone
 		{
 			//((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
 			//Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
+
 			if (e.SelectedItem != null)
 			{
-				await Navigation.PushAsync(new MyTaskPage
+                RestService restService = new RestService();
+
+                TaskList taskList = await restService.RefreshDataAsync();
+                listView.ItemsSource = taskList.Tasks;
+                /*List<MyTask> lista = new List<MyTask>();
+                MyTask t = new MyTask();
+                t.Name = "BOK";
+                lista.Add(t);
+                listView.ItemsSource = lista;*/
+
+
+                await Navigation.PushAsync(new MyTaskPage
 				{
-					BindingContext = e.SelectedItem as MyTask
+					BindingContext = e.SelectedItem as MyTaskList
 				});
 			}
 		}

@@ -27,6 +27,24 @@ namespace WFMAClone
 			}
 			return Items;
 		}
-	}
+
+        public async Task<MyTask> getTaskByIdAsync(int id)
+        {
+            // var uri = new Uri("http://w4api.azurewebsites.net/api/Task/{id}");
+
+            string link = string.Format("http://w4api.azurewebsites.net/api/Task/{0}", id);
+
+            var uri = new Uri(string.Format("http://w4api.azurewebsites.net/api/Task/", id));
+
+            var response = await client.GetAsync(uri);
+            var Items = new MyTask();
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<MyTask>(content);
+            }
+            return Items;
+        }
+    }
 	
 }
