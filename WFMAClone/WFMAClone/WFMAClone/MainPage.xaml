@@ -5,42 +5,42 @@
              xmlns:local="clr-namespace:WFMAClone"
              x:Class="WFMAClone.MainPage">
 
-        <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" BackgroundColor="White">
-            <ListView.ItemTemplate>  
-                <DataTemplate>  
-                    <ViewCell Height="85"> 
-                        <StackLayout Orientation="Vertical" Margin="3" Padding="2">
-                            <StackLayout Orientation="Horizontal">
-                                    <StackLayout Orientation="Vertical">  
-                                        <StackLayout Orientation="Horizontal"> 
-                                            <Label Text="{Binding JobId}" Font="18"></Label>    
-                                            <Label Text="{Binding Name}" Font="18"></Label>  
-                                        </StackLayout>  
+    <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true"  SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
+                    <StackLayout Orientation="Horizontal">
 
-                                        <Label Text="{Binding JobType}" TextColor="#3d3d3d"></Label>
-                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="End"> 
-                                            <Label Text="Due Date: " TextColor="#3d3d3d"></Label>
-                                        <Label Text="{Binding DueDate}" TextColor="#3d3d3d"></Label>
-                                        </StackLayout> 
-                                    </StackLayout> 
-                            
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand"> 
-                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">  
-                                            <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>  
+                        <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding JobId}" FontSize="Small" ></Label>
+                                    <Label Text="{Binding Name}" FontSize="Small"></Label>
+                                </StackLayout>
+                                <Label Text="{Binding JobType}" FontSize="Small" TextColor="#3d3d3d"></Label>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="End">
+                                    <Label Text="Due Date" FontSize="Micro"  TextColor="#3d3d3d"></Label>
+                                    <Label Text="{Binding ShortDate}" FontSize="Micro" TextColor="#3d3d3d"></Label>
+                                </StackLayout>
+                        </StackLayout>
 
-                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"> 
-                                                <Label Text="Priority: "></Label>
-                                              <Label Text="{Binding TaskPriority}"></Label>
-                                            </StackLayout> 
-                                        
-                                        </StackLayout>
-                                        <Frame x:Name="statusColor" VerticalOptions="CenterAndExpand" HeightRequest="75" BackgroundColor="Lime" Margin="2" Padding="5" HasShadow="false"></Frame>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                    <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>
 
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                                        <Label Text="Priority: " FontSize="Micro"></Label>
+                                        <Label Text="{Binding TaskPriority}" FontSize="Micro"></Label>
                                     </StackLayout>
-                                </StackLayout>  
-                           </StackLayout>  
-                    </ViewCell>  
-                </DataTemplate>  
-            </ListView.ItemTemplate>  
-        </ListView>
+                            
+
+                        </StackLayout>
+                        <StackLayout  Orientation="Vertical" VerticalOptions="FillAndExpand">
+                            <Frame x:Name="statusColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Binding Color}" Margin="2" Padding="5" HasShadow="false"></Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

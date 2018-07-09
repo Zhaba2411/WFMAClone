@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WFMAClone.Models;
 using Xamarin.Forms;
 
 namespace WFMAClone
@@ -21,20 +22,20 @@ namespace WFMAClone
 
 			RestService restService = new RestService();
 
-			MyTask currentTask = await restService.RefreshDataAsync();
-			listView.ItemsSource = taskList.Tasks;
-			/*List<MyTask> lista = new List<MyTask>();
-			MyTask t = new MyTask();
-			t.Name = "BOK";
-			lista.Add(t);
-			listView.ItemsSource = lista;*/
+			List<ColoredTask> coloredTasks = new List<ColoredTask>();
+			TaskList taskList = await restService.RefreshDataAsync();
+			foreach(MyTask task in taskList.Tasks)
+			{
+				coloredTasks.Add(new ColoredTask(task));
+			}
+			listView.ItemsSource = coloredTasks;
 		}
 
 		async void OnItemAdded(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new MyTaskPage
 			{
-				BindingContext = new MyTaskList()
+				BindingContext = new MyTask()
 			});
 		}
 
@@ -42,23 +43,11 @@ namespace WFMAClone
 		{
 			//((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
 			//Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
-
 			if (e.SelectedItem != null)
 			{
-                RestService restService = new RestService();
-
-                TaskList taskList = await restService.RefreshDataAsync();
-                listView.ItemsSource = taskList.Tasks;
-                /*List<MyTask> lista = new List<MyTask>();
-                MyTask t = new MyTask();
-                t.Name = "BOK";
-                lista.Add(t);
-                listView.ItemsSource = lista;*/
-
-
-                await Navigation.PushAsync(new MyTaskPage
+                await Navigation.PushModalAsync(new MyTaskPage
 				{
-					BindingContext = e.SelectedItem as MyTaskList
+					BindingContext = e.SelectedItem as MyTask
 				});
 			}
 		}
