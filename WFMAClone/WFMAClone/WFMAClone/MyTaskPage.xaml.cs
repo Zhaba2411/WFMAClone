@@ -16,5 +16,14 @@ namespace WFMAClone
 		{
 			InitializeComponent ();
 		}
-	}
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            RestService restService = new RestService();
+            MyTask taskList = await restService.getTaskByIdAsync(1);
+        }
+
+    }
 }

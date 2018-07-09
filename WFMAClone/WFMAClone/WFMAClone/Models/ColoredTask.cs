@@ -4,11 +4,11 @@ using System.Text;
 
 namespace WFMAClone.Models
 {
-	class ColoredTask : MyTask
+	class ColoredTask : MyTaskList
 	{
 		public string Color {get;set;}
         public string ShortDate { get; set; }
-		public ColoredTask(MyTask task)
+		public ColoredTask(MyTaskList task)
 		{
 			Id = task.Id;
 			Name = task.Name;
@@ -21,23 +21,19 @@ namespace WFMAClone.Models
 
             ShortDate = temp.ToString("dd.M.yyyy");
 
-			if (Status.Equals("new"))
-			{
+			if (Status.Equals("new")) {
 				Color = "Lime";
 			}
-			else if(Status.Equals("accepted")){
+			else if(Status.Equals("accepted")) {
 				Color = "Orange";
 			}
-			else if (Status.Equals("downloaded"))
-			{
+			else if (Status.Equals("downloaded")) {
 				Color = "Red";
 			}
-			else if(Status.Equals("not downloaded"))
-			{
+			else if(Status.Equals("not downloaded")) {
 				Color = "Blue";
 			}
-			else
-			{
+			else {
 				Color = "Black";
 			}
 		}

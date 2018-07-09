@@ -24,7 +24,7 @@ namespace WFMAClone
 
 			List<ColoredTask> coloredTasks = new List<ColoredTask>();
 			TaskList taskList = await restService.RefreshDataAsync();
-			foreach(MyTask task in taskList.Tasks)
+			foreach(MyTaskList task in taskList.Tasks)
 			{
 				coloredTasks.Add(new ColoredTask(task));
 			}
@@ -35,7 +35,7 @@ namespace WFMAClone
 		{
 			await Navigation.PushAsync(new MyTaskPage
 			{
-				BindingContext = new MyTask()
+				BindingContext = new MyTaskList()
 			});
 		}
 
@@ -45,6 +45,10 @@ namespace WFMAClone
 			//Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
 			if (e.SelectedItem != null)
 			{
+
+                Console.WriteLine("write LINK **");
+                Console.ReadLine();
+
                 await Navigation.PushModalAsync(new MyTaskPage
 				{
 					BindingContext = e.SelectedItem as MyTask
