@@ -9,19 +9,14 @@ using Xamarin.Forms.Xaml;
 
 namespace WFMAClone
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MyTaskPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MyTaskPage : ContentPage
+    {
         int id;
-        public MyTaskPage()
+
+        public MyTaskPage(int id)
         {
             InitializeComponent();
-        }
-
-
-		public MyTaskPage (int id)
-		{
-			InitializeComponent ();
             this.id = id;
         }
 
@@ -34,7 +29,7 @@ namespace WFMAClone
 
             currentTask.BindingContext = task;
         }
-
         async void OnNavigateButtonClicked(object sender, EventArgs e)         {             await Navigation.PopModalAsync();         }
+
     }
 }

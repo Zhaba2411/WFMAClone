@@ -2,11 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WFMAClone.MyTaskPage">
-    
-    <StackLayout BackgroundColor="Red" VerticalOptions="StartAndExpand" Orientation="Vertical">
-        <StackLayout x:Name="currentTask" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-            <Button x:Name="navigateButton" Text="Previous Page" Clicked="OnNavigateButtonClicked"/>
-            <Label Text="{Binding Job.Id}" FontSize="Small"></Label>
+    <ContentPage.Content>
+        <StackLayout x:Name="currentTask" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Red" Orientation="Vertical">
+       
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="navigateButton" VerticalOptions="Center" Text="Previous Page" Clicked="OnNavigateButtonClicked"/>
+                <Label Text="{Binding Job.Id}" VerticalOptions="Center" FontSize="Small"></Label>
+            </StackLayout>
+
+
         </StackLayout>
-    </StackLayout>
-     </ContentPage>
+    </ContentPage.Content>
+</ContentPage>
