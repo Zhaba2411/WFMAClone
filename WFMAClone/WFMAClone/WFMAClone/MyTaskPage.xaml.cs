@@ -13,6 +13,11 @@ namespace WFMAClone
 	public partial class MyTaskPage : ContentPage
 	{
         int id;
+        public MyTaskPage()
+        {
+            InitializeComponent();
+        }
+
 
 		public MyTaskPage (int id)
 		{
@@ -30,5 +35,6 @@ namespace WFMAClone
             currentTask.BindingContext = task;
         }
 
+        async void OnNavigateButtonClicked(object sender, EventArgs e)         {             await Navigation.PopModalAsync();         }
     }
 }
