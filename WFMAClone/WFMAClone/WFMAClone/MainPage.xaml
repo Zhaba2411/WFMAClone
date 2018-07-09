@@ -5,11 +5,12 @@
              xmlns:local="clr-namespace:WFMAClone"
              x:Class="WFMAClone.MainPage">
 
-    <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" BackgroundColor="White">
+    <ListView x:Name="listView" ItemSelected="OnListItemSelected" HasUnevenRows ="true" SeparatorVisibility="None">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell >
-                    <StackLayout Orientation="Horizontal" Margin="3" Padding="2">
+                <ViewCell>
+                <Frame BorderColor="Black" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
+                    <StackLayout Orientation="Horizontal">
 
                         <StackLayout Orientation="Vertical">
                         <StackLayout Orientation="Horizontal">
@@ -18,8 +19,8 @@
                                 </StackLayout>
                                 <Label Text="{Binding JobType}" FontSize="Small" TextColor="#3d3d3d"></Label>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="End">
-                                    <Label Text="Due Date: " FontSize="Micro"  TextColor="#3d3d3d"></Label>
-                                    <Label Text="{Binding DueDate}" FontSize="Micro" TextColor="#3d3d3d"></Label>
+                                    <Label Text="Due Date" FontSize="Micro"  TextColor="#3d3d3d"></Label>
+                                    <Label Text="{Binding ShortDate}" FontSize="Micro" TextColor="#3d3d3d"></Label>
                                 </StackLayout>
                         </StackLayout>
 
@@ -37,6 +38,7 @@
                             <Frame x:Name="statusColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Binding Color}" Margin="2" Padding="5" HasShadow="false"></Frame>
                         </StackLayout>
                     </StackLayout>
+                    </Frame>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

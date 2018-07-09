@@ -7,6 +7,7 @@ namespace WFMAClone.Models
 	class ColoredTask : MyTask
 	{
 		public string Color {get;set;}
+        public string ShortDate { get; set; }
 		public ColoredTask(MyTask task)
 		{
 			Id = task.Id;
@@ -16,6 +17,9 @@ namespace WFMAClone.Models
 			JobType = task.JobType;
 			TaskPriority = task.TaskPriority;
 			DueDate = task.DueDate.Date;
+            var temp = task.DueDate.Date;
+
+            ShortDate = temp.ToString("dd.M.yyyy");
 
 			if (Status.Equals("new"))
 			{
