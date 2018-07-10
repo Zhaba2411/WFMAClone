@@ -1,7 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:WFMAClone;assembly=WFMAClone"
+            x:Class="WFMAClone.MyTaskPage">
+
+    <local:CommentsTab />
+    <local:DocumentsTab />
+    <local:MapTab />
+    
+    <!--
+    <NavigationPage Title="TaskPage">
+        <x:Arguments>
+            <local:DocumentsTab />
+        </x:Arguments>
+    </NavigationPage>
+    -->
+
+</TabbedPage>
+
+    
+    
+<!--
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WFMAClone.MyTaskPage">
+    
+
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout x:Name="currentTask" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Red" Orientation="Vertical">
@@ -36,4 +61,4 @@
             </ListView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+    -->

@@ -14,7 +14,15 @@ namespace WFMAClone
 		public int TaskPriority { get; set; }
 		public string Type { get; set; }
 		public DateTime DueDate { get; set; }
-	}
+
+        public string Color
+        {
+            get
+            {
+                return "red";
+            }
+        }
+    }
 
 	class TaskList
 	{

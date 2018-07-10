@@ -1,30 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WFMAClone
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MyTaskPage : ContentPage
+	public partial class MyTaskPage : TabbedPage
 	{
         int id;
-        public MyTaskPage()
-        {
-            InitializeComponent();
-        }
-
 
 		public MyTaskPage (int id)
 		{
 			InitializeComponent ();
             this.id = id;
+
+            // this.Title = "TabbedPage";
         }
 
+        /*
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -52,7 +44,11 @@ namespace WFMAClone
 			}
 			listView.ItemsSource = task.Comments;
         }
+        */
 
+
+            /*
         async void OnNavigateButtonClicked(object sender, EventArgs e)         {             await Navigation.PopModalAsync();         }
+        */
     }
 }
