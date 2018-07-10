@@ -58,5 +58,21 @@ namespace WFMAClone
                 */
             }
 		}
+
+        async void OnDateFilterButtonClicked(object sender, EventArgs args)
+        {
+            
+        }
+
+        async void OnQuickFilterButtonClicked(object sender, EventArgs args)
+        {
+            
+        }
+
+        async void OnRemoveFilterButtonClicked(object sender, EventArgs args)
+        {
+            
+        }
+
 	}
 }

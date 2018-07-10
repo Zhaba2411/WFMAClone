@@ -158,4 +158,8 @@
       <Name>WFMAClone</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline-filter_list-24px.svg" />
+    <BundleResource Include="Resources\filter-results-button.png" />
+  </ItemGroup>
 </Project>

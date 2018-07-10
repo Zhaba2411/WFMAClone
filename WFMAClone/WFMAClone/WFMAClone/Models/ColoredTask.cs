@@ -22,13 +22,13 @@ namespace WFMAClone.Models
             ShortDate = temp.ToString("dd.M.yyyy");
 
 			if (Status.Equals("new")) {
-				Color = "Lime";
+				Color = "Red";
 			}
 			else if(Status.Equals("accepted")) {
 				Color = "Orange";
 			}
 			else if (Status.Equals("downloaded")) {
-				Color = "Red";
+				Color = "Lime";
 			}
 			else if(Status.Equals("not downloaded")) {
 				Color = "Blue";
