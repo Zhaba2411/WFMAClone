@@ -2,6 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WFMAClone.MainPage">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="5,25,5,5" VerticalOptions="StartAndExpand" BackgroundColor="Red" HorizontalOptions="FillAndExpand">
+            <Label TextColor="White" Text="Task List"/>
+        </StackLayout>
 
     <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true"  SeparatorVisibility="None">
         <ListView.ItemTemplate>
@@ -40,4 +44,10 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" BackgroundColor="Red" HorizontalOptions="FillAndExpand">
+        <Button x:Name="dateFilterButton" VerticalOptions="Center" Clicked="OnDateFilterButtonClicked"/>
+        <Button x:Name="quickFilterButton" VerticalOptions="Center" Clicked="OnQuickFilterButtonClicked"/>
+        <Button x:Name="removeFilterButton" VerticalOptions="Center" Clicked="OnRemoveFilterButtonClicked"/>
+    </StackLayout>
+ </StackLayout>
 </ContentPage>

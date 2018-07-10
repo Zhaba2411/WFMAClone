@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace WFMAClone
 {
 	public partial class MainPage : ContentPage
 	{
-		public MainPage()
+        public MainPage()
 		{
 			InitializeComponent();
 		}
@@ -38,7 +39,15 @@ namespace WFMAClone
                 */
             }
 		}
-
+        void OnDateFilterButtonClicked(object sender, EventArgs e)
+        {
+        }
+        void OnQuickFilterButtonClicked(object sender, EventArgs e)
+        {
+        }
+        void OnRemoveFilterButtonClicked(object sender, EventArgs e)
+        {
+        }
 
 	}
 }
