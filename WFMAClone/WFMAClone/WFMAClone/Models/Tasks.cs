@@ -83,7 +83,8 @@ namespace WFMAClone
         public string CommentText { get; set; }
         public string CommentType { get; set; }
         public string ContextId { get; set; }
-    }
+		public string Initials { get; set; }
+	}
 
     class Document
     {

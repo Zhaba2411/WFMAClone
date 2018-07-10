@@ -9,11 +9,10 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
-                    <StackLayout Orientation="Horizontal">
-
-                        <StackLayout Orientation="Vertical">
+                    <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false" >
                         <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding JobId}" FontSize="Small" ></Label>
                                     <Label Text="{Binding Name}" FontSize="Small"></Label>
                                 </StackLayout>
@@ -22,22 +21,22 @@
                                     <Label Text="Due Date" FontSize="Micro"  TextColor="#3d3d3d"></Label>
                                     <Label Text="{Binding ShortDate}" FontSize="Micro" TextColor="#3d3d3d"></Label>
                                 </StackLayout>
-                        </StackLayout>
+                            </StackLayout>
 
-                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
-                                    <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>
 
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
-                                        <Label Text="Priority: " FontSize="Micro"></Label>
-                                        <Label Text="{Binding TaskPriority}" FontSize="Micro"></Label>
-                                    </StackLayout>
-                            
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                                    <Label Text="Priority: " FontSize="Micro"></Label>
+                                    <Label Text="{Binding TaskPriority}" FontSize="Micro"></Label>
+                                </StackLayout>
 
+
+                            </StackLayout>
+                            <StackLayout  Orientation="Vertical" VerticalOptions="FillAndExpand">
+                                <Frame x:Name="statusColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Binding Color}" Margin="2" Padding="5" HasShadow="false"></Frame>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout  Orientation="Vertical" VerticalOptions="FillAndExpand">
-                            <Frame x:Name="statusColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Binding Color}" Margin="2" Padding="5" HasShadow="false"></Frame>
-                        </StackLayout>
-                    </StackLayout>
                     </Frame>
                 </ViewCell>
             </DataTemplate>
