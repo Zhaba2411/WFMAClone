@@ -160,10 +160,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\clear_button.png" />
-    <AndroidResource Include="Resources\filter.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\calendar.png" />
+    <BundleResource Include="Resources\clear_button.png" />
+    <BundleResource Include="Resources\filter.png" />
   </ItemGroup>
 </Project>

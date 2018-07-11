@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WFMAClone.MainPage">
     <StackLayout>
-        <StackLayout Orientation="Horizontal" Padding="5,25,5,5" VerticalOptions="StartAndExpand" BackgroundColor="Red" HorizontalOptions="FillAndExpand">
-            <Label TextColor="White" Text="Task List"/>
-        </StackLayout>
+    <Grid BackgroundColor="Red"> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Task List" Margin="5,25,0,8" TextColor="White"></Label>
+    </Grid>
+
 
     <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true"  SeparatorVisibility="None">
         <ListView.ItemTemplate>
@@ -15,7 +23,6 @@
                         <StackLayout Orientation="Horizontal">
                             <StackLayout Orientation="Vertical">
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding JobId}" TextColor="{Binding Color}" FontSize="Small" ></Label>
                                     <Label Text="{Binding Name}" TextColor="{Binding Color}"  FontSize="Small"></Label>
                                 </StackLayout>
                                 <Label Text="{Binding JobType}" FontSize="Small" TextColor="#3d3d3d"></Label>
@@ -44,10 +51,29 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" BackgroundColor="Red" HorizontalOptions="FillAndExpand">
-        <Button x:Name="dateFilterButton" VerticalOptions="Center" Clicked="OnDateFilterButtonClicked"/>
-        <Button x:Name="quickFilterButton" VerticalOptions="Center" Clicked="OnQuickFilterButtonClicked"/>
-        <Button x:Name="removeFilterButton" VerticalOptions="Center" Clicked="OnRemoveFilterButtonClicked"/>
-    </StackLayout>
+        
+    <Grid BackgroundColor="Red"> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="6*" />
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="dateFilterButton" Image="calendar.png" Margin="5" Grid.Column="0" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnDateFilterButtonClicked"/>
+        <Button x:Name="quickFilterButton" Image="filter.png" Margin="5" Grid.Column="1"  BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnQuickFilterButtonClicked"/>
+        <Button x:Name="removeFilterButton" Image="clear_button.png" Margin="5" Grid.Column="2"  BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnRemoveFilterButtonClicked"/>
+    </Grid>
+
+    <!-- <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" BackgroundColor="Red" Padding="10,0,0,0" HorizontalOptions="FillAndExpand">
+        <Button x:Name="dateFilterButton" Image="calendar.png" Margin="5" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnDateFilterButtonClicked"/>
+        <Button x:Name="quickFilterButton" Image="filter.png" Margin="5" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnQuickFilterButtonClicked"/>
+        <Button x:Name="removeFilterButton" Image="clear_button.png" Margin="5" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnRemoveFilterButtonClicked"/>
+    </StackLayout> -->
+        
  </StackLayout>
 </ContentPage>
+
