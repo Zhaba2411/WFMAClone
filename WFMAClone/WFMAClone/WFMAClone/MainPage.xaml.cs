@@ -24,7 +24,7 @@ namespace WFMAClone
 
             if (taskList.Tasks != null){
                 notFilteredTaskList = taskList.Tasks;
-                listView.ItemsSource = taskList.Tasks;
+                listView.ItemsSource = notFilteredTaskList;
             }
             else{
                 Console.WriteLine("taskList.Tasks is empty! Can't set listView.ItemsSource");
@@ -58,24 +58,40 @@ namespace WFMAClone
         void DatePicker_OnDateSelected(object sender, DateChangedEventArgs e)
         {
             List<MyTaskList> filteredList = new List<MyTaskList>();
-            foreach (var Task in notFilteredTaskList)
+            foreach (var task in notFilteredTaskList)
             {
-                if (Task.DueDate.Date.Equals(e.NewDate)){
+                if (task.DueDate.Date.Equals(e.NewDate)){
                     Console.WriteLine("Task date is same!");
                     Console.ReadLine();
-                    filteredList.Add(Task);
+                    filteredList.Add(task);
                 }
             }
             listView.ItemsSource = filteredList;
         }
 
-        void OnQuickFilterButtonClicked(object sender, EventArgs e)
-        {
+        async void OnQuickFilterButtonClicked(object sender, EventArgs e){
+            var action = await DisplayActionSheet("Quick Filters", "Cancel", "", "New", "Accepted", "Downloaded", "Not Downloaded");
+            action = action.ToLower();
+            Console.WriteLine(action);
+            if (String.IsNullOrWhiteSpace(action) || action.Equals("Cancel")){
+                Console.WriteLine("Quick Filter cancled");
+                Console.ReadLine();
 
+            }else{
+                Console.WriteLine("Started filtering with parametar: " + action);
+                Console.ReadLine();
+
+                List<MyTaskList> filteredList = new List<MyTaskList>();
+                foreach (var task in notFilteredTaskList){
+                    if (task.Status.Equals(action)){
+                        filteredList.Add(task);
+                    }
+                }
+                listView.ItemsSource = filteredList;
+            }
         }
 
-        void OnRemoveFilterButtonClicked(object sender, EventArgs e)
-        {
+        void OnRemoveFilterButtonClicked(object sender, EventArgs e){
             listView.ItemsSource = notFilteredTaskList;
 
         }
