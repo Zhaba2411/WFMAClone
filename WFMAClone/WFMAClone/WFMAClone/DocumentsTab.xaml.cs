@@ -18,16 +18,11 @@ namespace WFMAClone
             BindingContext = new TaskViewModel();
         }
 
+        // select document (open details page)
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                Console.WriteLine("==>");
-                Console.WriteLine((e.SelectedItem as Document).MimeType);
-                /*
-                MyTaskDetails task = e.SelectedItem as MyTaskDetails;
-                await Navigation.PushModalAsync(new DocumentDetailsPage(task));
-                */
                 Document doc = e.SelectedItem as Document;
                 await Navigation.PushModalAsync(new DocumentDetailsPage(doc));
 
