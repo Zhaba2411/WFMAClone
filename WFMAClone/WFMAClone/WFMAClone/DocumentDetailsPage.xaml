@@ -50,8 +50,8 @@
 
             <!-- bottom menu -->
             <StackLayout Orientation="Horizontal" BackgroundColor="Red" Padding="10">
-                <Label Text="Delete" VerticalOptions="Center" FontSize="Small" TextColor="White" />
-                <Label Text="???" VerticalOptions="Center" FontSize="Small" TextColor="White" />
+                <Image Source="filter.jpg" x:Name="AcceptButton"  VerticalOptions="Center" Scale="0.5" Aspect="AspectFit" />
+                <Image Source="clear_button.jpg" x:Name="DeleteButton" VerticalOptions="Center" Scale="0.5" Aspect="AspectFit" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
