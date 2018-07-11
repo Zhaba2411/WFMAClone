@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="DocumentDetailsPage.xaml.cs">
+      <DependentUpon>DocumentDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Models\TaskViewModel.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -22,6 +25,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="CommentsTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DocumentDetailsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="DocumentsTab.xaml">

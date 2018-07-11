@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="WFMAClone.DocumentDetailsPage"
+			 Title="Document Details">
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <!-- top menu (back) -->
+            <StackLayout x:Name="backButton" Orientation="Horizontal" BackgroundColor="Red" Padding="10">
+                <Label Text="&lt;" FontSize="Medium" FontAttributes="Bold" TextColor="White" />
+                <Label Text="{Binding FileName}" VerticalOptions="Center" FontSize="Small" TextColor="White" />
+            </StackLayout>
+
+            <!-- document info -->
+            <Grid Padding="5" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- first column (spanned image) -->
+                <Label Text="Img" FontSize="Small" HorizontalOptions="CenterAndExpand" BackgroundColor="Beige" TextColor="#3d3d3d" Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" />
+
+                <!-- second column -->
+                <Label Text="File Name:" FontSize="Micro" TextColor="#3d3d3d" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" />
+                <Label Text="WOID:" FontSize="Micro" TextColor="#3d3d3d" FontAttributes="Bold" Grid.Column="1" Grid.Row="1" />
+                <Label Text="Created on:" FontSize="Micro" TextColor="#3d3d3d" FontAttributes="Bold" Grid.Column="1" Grid.Row="2" />
+                <Label Text="Created by:" FontSize="Micro" TextColor="#3d3d3d" FontAttributes="Bold" Grid.Column="1" Grid.Row="3" />
+                <Label Text="Type:" FontSize="Micro" TextColor="#3d3d3d" FontAttributes="Bold" Grid.Column="1" Grid.Row="4" />
+                <Label Text="Description:" FontSize="Micro" TextColor="#3d3d3d" FontAttributes="Bold" Grid.Column="1" Grid.Row="5" />
+
+                <!-- third column-->
+                <Label Text="{Binding FileName}" FontSize="Micro" TextColor="#3d3d3d" Grid.Column="2" Grid.Row="0" />
+                <Label Text="{Binding Woid}" FontSize="Micro" TextColor="#3d3d3d" Grid.Column="2" Grid.Row="1" />
+                <Label Text="{Binding CreatedOn}" FontSize="Micro" TextColor="#3d3d3d" Grid.Column="2" Grid.Row="2" />
+                <Label Text="{Binding CreatedBy}" FontSize="Micro" TextColor="#3d3d3d" Grid.Column="2" Grid.Row="3" />
+                <Label Text="{Binding MimeType}" FontSize="Micro" TextColor="#3d3d3d" Grid.Column="2" Grid.Row="4" />
+                <Label Text="{Binding Description}" FontSize="Micro" TextColor="#3d3d3d" Grid.Column="2" Grid.Row="5" />
+            </Grid>
+
+            <!-- bottom menu -->
+            <StackLayout Orientation="Horizontal" BackgroundColor="Red" Padding="10">
+                <Label Text="Delete" VerticalOptions="Center" FontSize="Small" TextColor="White" />
+                <Label Text="???" VerticalOptions="Center" FontSize="Small" TextColor="White" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

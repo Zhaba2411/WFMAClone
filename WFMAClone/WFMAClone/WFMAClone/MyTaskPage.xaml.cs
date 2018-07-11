@@ -16,7 +16,7 @@ namespace WFMAClone
             BindingContext = this;
         }
 
-        protected override async void OnAppearing() {
+        protected override void OnAppearing() {
             base.OnAppearing();
         }
 
