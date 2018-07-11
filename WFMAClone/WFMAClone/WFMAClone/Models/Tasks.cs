@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace WFMAClone
 {
-    class MyTask
+    public class MyTask
     {
         public int Id { get; set; }
         public int Priority { get; set; }
@@ -23,7 +24,7 @@ namespace WFMAClone
         public DateTime dueDate { get; set; }
     }
 
-    class Job
+    public class Job
     {
         public int Id { get; set; }
         public int JobTypeId { get; set; }
@@ -34,7 +35,7 @@ namespace WFMAClone
         public string RelatedMapLayerSelection { get; set; }
     }
 
-    class TaskType
+    public class TaskType
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -44,7 +45,7 @@ namespace WFMAClone
     }
 
     // part of TaskType
-    class TaskWebParts
+    public class TaskWebParts
     {
         public int Id { get; set; }
         public int Order { get; set; }
@@ -54,7 +55,7 @@ namespace WFMAClone
     }
 
     // part of TaskType
-    class TaskWebPart
+    public class TaskWebPart
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -64,7 +65,7 @@ namespace WFMAClone
         public string Configuration { get; set; }
     }
 
-    class WebPart
+    public class WebPart
     {
         public int Id { get; set; }
         public int WebPartId { get; set; }
@@ -72,7 +73,7 @@ namespace WFMAClone
         public Object Values { get; set; }
     }
 
-    class Comment
+    public class Comment
     {
         public int Id { get; set; }
         public int WorkerId { get; set; }
@@ -80,13 +81,14 @@ namespace WFMAClone
         public DateTime DateEntered { get; set; }
         public DateTime DateEdited { get; set; }
         // TODO - renamed "Comment" (cant be same as class name)
+        [JsonProperty("comment")]
         public string CommentText { get; set; }
         public string CommentType { get; set; }
         public string ContextId { get; set; }
 		public string Initials { get; set; }
 	}
 
-    class Document
+    public class Document
     {
         public int Id { get; set; }
         public string FileName { get; set; }

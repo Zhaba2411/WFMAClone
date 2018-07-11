@@ -4,10 +4,20 @@
             xmlns:local="clr-namespace:WFMAClone;assembly=WFMAClone"
             x:Class="WFMAClone.MyTaskPage">
 
-    <local:CommentsTab />
-    <local:DocumentsTab />
-    <local:MapTab />
+    <!--
+     xmlns:behaviors="clr-namespace:WFMAClone"
     
+    <TabbedPage.Behaviors>
+        <behaviors:TabbedPageNavigationBehavior />
+    </TabbedPage.Behaviors>
+    -->
+    <TabbedPage.Children>
+        <local:CommentsTab />
+        <local:DocumentsTab />
+        <local:MapTab />
+    </TabbedPage.Children>
+    
+   
     <!--
     <NavigationPage Title="TaskPage">
         <x:Arguments>
@@ -17,48 +27,3 @@
     -->
 
 </TabbedPage>
-
-    
-    
-<!--
-    
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WFMAClone.MyTaskPage">
-    
-
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <StackLayout x:Name="currentTask" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Red" Orientation="Vertical">
-                <Button x:Name="navigateButton" VerticalOptions="Center" Text="Previous Page" Clicked="OnNavigateButtonClicked"/>
-            </StackLayout>
-            <ListView x:Name="listView" HasUnevenRows ="true" SeparatorVisibility="None" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="7*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Frame CornerRadius="90" BackgroundColor="Yellow" IsClippedToBounds="True" VerticalOptions="Center" HorizontalOptions="Center" Grid.RowSpan="3" Grid.Column="0">
-                                        <Label Text = "{Binding Initials}" TextColor="White" FontSize="Large"></Label>
-                                    </Frame>
-                                    <Label Text="{Binding WorkerName}" FontSize="Small" HorizontalTextAlignment="Center" Grid.Column="1" Grid.Row="0"></Label>
-                                    <Label Text="{Binding CommentText}" FontSize="Small" HorizontalTextAlignment="Center" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="1"></Label>
-                                    <Label Text="{Binding DateEntered}" FontSize="Micro" HorizontalTextAlignment="Center" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="2"></Label>
-                                </Grid>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
-    -->

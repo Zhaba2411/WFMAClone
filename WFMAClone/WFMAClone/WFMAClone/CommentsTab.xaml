@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 x:Class="WFMAClone.CommentsTab"
 			 Title="Comments">
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Today's appointments go here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <ListView ItemsSource="{Binding Task.Comments}" HasUnevenRows ="true" SeparatorVisibility="None" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="7*" />
+                            </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="90" BackgroundColor="Yellow" IsClippedToBounds="True" VerticalOptions="Center" HorizontalOptions="Center" Grid.RowSpan="3" Grid.Column="0">
+                                <Label Text = "{Binding Initials}" TextColor="White" FontSize="Large"></Label>
+                            </Frame>
+                            <Label Text="{Binding WorkerName}" FontSize="Small" HorizontalTextAlignment="Center" Grid.Column="1" Grid.Row="0"></Label>
+                            <Label Text="{Binding CommentText}" FontSize="Small" HorizontalTextAlignment="Center" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="1"></Label>
+                            <Label Text="{Binding DateEntered}" FontSize="Micro" HorizontalTextAlignment="Center" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="2"></Label>
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
 </ContentPage>

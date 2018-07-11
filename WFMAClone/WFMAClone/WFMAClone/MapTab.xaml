@@ -3,10 +3,11 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 x:Class="WFMAClone.MapTab"
 			 Title="Map">
-    
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Map Tab" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            <Label Text="{Binding Task.Priority}" />
+            <Label Text="{Binding Task.Id}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
