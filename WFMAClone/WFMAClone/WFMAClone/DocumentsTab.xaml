@@ -3,9 +3,28 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 x:Class="WFMAClone.DocumentsTab"
 			 Title="Documents">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Documents Tab" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <ListView ItemsSource="{Binding Task.Documents}" HasUnevenRows ="true" SeparatorVisibility="None" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame BorderColor="#e5e5e5" Margin="3,10,3,0" Padding="10,5,5,5" HasShadow="false">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Text="{Binding FileName}" FontSize="Small" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="1"></Label>
+                            <Label Text=">" FontSize="Small" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="2"></Label>
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
 </ContentPage>

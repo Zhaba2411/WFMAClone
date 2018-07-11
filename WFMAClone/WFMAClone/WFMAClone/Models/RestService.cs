@@ -15,25 +15,25 @@ namespace WFMAClone
 			client = new HttpClient();
 			client.MaxResponseContentBufferSize = 256000;
 		}
-		public async Task<TaskList> RefreshDataAsync()
+		public async Task<MyTaskList> getTaskListAsync()
 		{
 			var uri = new Uri("http://w4api.azurewebsites.net/api/TaskList");
 			var response = await client.GetAsync(uri);
-			var Items = new TaskList();
+			var Items = new MyTaskList();
 			if (response.IsSuccessStatusCode)
 			{
 				var content = await response.Content.ReadAsStringAsync();
-				Items = JsonConvert.DeserializeObject<TaskList>(content);
+				Items = JsonConvert.DeserializeObject<MyTaskList>(content);
 			}
 			return Items;
 		}
 
-        public async Task<MyTask> getTaskByIdAsync(int id)
+        public async Task<MyTaskDetails> getTaskByIdAsync(int id)
         {
             string uri = string.Format("http://w4api.azurewebsites.net/api/Task/{0}", id);
 
             var response = await client.GetAsync(uri);
-            var Items = new MyTask();
+            var Items = new MyTaskDetails();
 
             // json settings = ignore null fields:
             var jsonSettings = new JsonSerializerSettings {
@@ -43,7 +43,7 @@ namespace WFMAClone
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                Items = JsonConvert.DeserializeObject<MyTask>(content, jsonSettings);
+                Items = JsonConvert.DeserializeObject<MyTaskDetails>(content, jsonSettings);
             }
             return Items;
         }

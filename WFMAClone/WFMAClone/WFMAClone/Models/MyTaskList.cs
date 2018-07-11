@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WFMAClone
 {
-	class MyTaskList
+	class MyTask
     {
 		public int Id { get; set; }
 		public string Name { get; set; }
@@ -51,8 +51,8 @@ namespace WFMAClone
 		}
 	}
 
-	class TaskList
+	class MyTaskList
 	{
-		public List<MyTaskList> Tasks { get; set; }
+		public List<MyTask> Tasks { get; set; }
 	}
 }

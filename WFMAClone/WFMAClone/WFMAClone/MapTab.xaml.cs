@@ -11,6 +11,12 @@ namespace WFMAClone
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new TaskViewModel();
+        }
     }
 
 }

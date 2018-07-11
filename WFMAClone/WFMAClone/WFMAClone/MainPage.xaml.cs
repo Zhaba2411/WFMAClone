@@ -6,7 +6,7 @@ namespace WFMAClone
 {
     public partial class MainPage : ContentPage
     {
-        private static List<MyTaskList> notFilteredTaskList = new List<MyTaskList>();
+        private static List<MyTask> notFilteredTaskList = new List<MyTask>();
 
 
         public MainPage()
@@ -20,7 +20,7 @@ namespace WFMAClone
 
             WFMAClone.RestService restService = new WFMAClone.RestService();
 
-            TaskList taskList = await restService.RefreshDataAsync();
+            MyTaskList taskList = await restService.getTaskListAsync();
 
             if (taskList.Tasks != null){
                 notFilteredTaskList = taskList.Tasks;
@@ -39,7 +39,7 @@ namespace WFMAClone
             //Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
             if (e.SelectedItem != null)
             {
-                var task = e.SelectedItem as MyTaskList;
+                var task = e.SelectedItem as MyTask;
                 await Navigation.PushModalAsync(new MyTaskPage(task.Id));
 
 
@@ -57,7 +57,7 @@ namespace WFMAClone
 
         void DatePicker_OnDateSelected(object sender, DateChangedEventArgs e)
         {
-            List<MyTaskList> filteredList = new List<MyTaskList>();
+            List<MyTask> filteredList = new List<MyTask>();
             foreach (var Task in notFilteredTaskList)
             {
                 if (Task.DueDate.Date.Equals(e.NewDate)){
@@ -79,7 +79,7 @@ namespace WFMAClone
 			}
 			else
 			{
-				List<MyTaskList> filteredList = new List<MyTaskList>();
+				List<MyTask> filteredList = new List<MyTask>();
 				foreach (var task in notFilteredTaskList)
 				{
 					if (task.Status.Equals(action))
