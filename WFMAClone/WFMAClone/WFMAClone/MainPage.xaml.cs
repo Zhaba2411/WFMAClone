@@ -69,15 +69,31 @@ namespace WFMAClone
             listView.ItemsSource = filteredList;
         }
 
-        void OnQuickFilterButtonClicked(object sender, EventArgs e)
-        {
+		async void OnQuickFilterButtonClicked(object sender, EventArgs e)
+		{
+			var action = await DisplayActionSheet("Quick Filters", "Cancel", "", "New", "Accepted", "Downloaded", "Not Downloaded");
+			action = action.ToLower();
+			Console.WriteLine(action);
+			if (String.IsNullOrWhiteSpace(action) || action.Equals("Cancel"))
+			{
+			}
+			else
+			{
+				List<MyTaskList> filteredList = new List<MyTaskList>();
+				foreach (var task in notFilteredTaskList)
+				{
+					if (task.Status.Equals(action))
+					{
+						filteredList.Add(task);
+					}
+				}
+				listView.ItemsSource = filteredList;
+			}
+		}
 
-        }
-
-        void OnRemoveFilterButtonClicked(object sender, EventArgs e)
+		void OnRemoveFilterButtonClicked(object sender, EventArgs e)
         {
             listView.ItemsSource = notFilteredTaskList;
-
         }
 
     }
