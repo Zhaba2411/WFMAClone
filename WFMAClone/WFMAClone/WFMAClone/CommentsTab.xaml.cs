@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WFMAClone
@@ -17,5 +18,15 @@ namespace WFMAClone
             base.OnAppearing();
             BindingContext = new TaskViewModel();
         }
+
+        void OnAcceptButtonClicked(object sender, EventArgs e){
+        }
+
+        void OnSaveButtonClicked(object sender, EventArgs e){
+        }
+
+        void OnFinalizeButtonClicked(object sender, EventArgs e){
+        }
+
     }
 }
