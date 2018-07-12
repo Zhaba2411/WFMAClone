@@ -17,6 +17,9 @@ namespace WFMAClone
         {
             base.OnAppearing();
             BindingContext = new TaskViewModel();
+
+            // TODO - example of getting the ID:
+            Console.WriteLine(((TaskViewModel) BindingContext).Task.Id);
         }
 
         void OnAcceptButtonClicked(object sender, EventArgs e){
