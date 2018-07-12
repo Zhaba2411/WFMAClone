@@ -80,18 +80,37 @@
         <!-- filters -->
         <DatePicker x:Name="picker" IsVisible="false" DateSelected="DatePicker_OnDateSelected"/>
         
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" BackgroundColor="{StaticResource Red}" 
-                        Margin="0" Padding="0" Spacing="-12" Grid.Row="2">
-            <Button Image="calendar.png" Scale="0.5"
-                    Margin="0" BorderWidth="0" BackgroundColor="Transparent"
+        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" 
+                        Margin="0" Padding="0" Grid.Row="2" Spacing="0">
+            <!--
+            <Button Image="calendar.png" Scale="0.6"
+                    Margin="0" BorderWidth="0" BackgroundColor="Yellow"
+                    HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"
                     Clicked="OnDateFilterButtonClicked"/>
-            <Button Image="filter.png" Scale="0.5" 
-                    Margin="0" BorderWidth="0" BackgroundColor="Transparent"
+            <Button Image="filter.png" Scale="0.6"
+                    Margin="0" BorderWidth="0" BackgroundColor="Green"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                     Clicked="OnQuickFilterButtonClicked"/>
-            <Button Image="clear_button.png" Scale="0.5"
-                    Margin="0" BorderWidth="0" BackgroundColor="Transparent"
+            <Button Image="clear_button.png" Scale="0.6"
+                    Margin="0" BorderWidth="0" BackgroundColor="Blue"
+                    HorizontalOptions="Fill" VerticalOptions="Fill"
                     Clicked="OnRemoveFilterButtonClicked"/>
-            <BoxView HorizontalOptions="EndAndExpand" />
+            -->
+
+            <!-- without scaling -->
+            <Button Image="calendar.png"
+                    Margin="0" BorderWidth="0" BackgroundColor="Yellow"
+                    HorizontalOptions="Start" VerticalOptions="Start"
+                    Clicked="OnDateFilterButtonClicked"/>
+            <Button Image="filter.png"
+                    Margin="0" BorderWidth="0" BackgroundColor="Green"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    Clicked="OnQuickFilterButtonClicked"/>
+            <Button Image="clear_button.png"
+                    Margin="0" BorderWidth="0" BackgroundColor="Blue"
+                    HorizontalOptions="Fill" VerticalOptions="Fill"
+                    Clicked="OnRemoveFilterButtonClicked"/>
+            <BoxView HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>
 
