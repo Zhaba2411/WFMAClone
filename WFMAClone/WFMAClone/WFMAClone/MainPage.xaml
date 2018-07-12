@@ -2,28 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WFMAClone.MainPage"
-             xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
              Title="Title">
-
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!-- background app color -->
-            <Color x:Key="Pink">#c51162</Color>
-            <Color x:Key="DarkPink">#b00020</Color>
-            <Color x:Key="Red">#fd1b31</Color>
-
-            <Color x:Key="Orange">#f98e02</Color>
-
-            <!-- greys -->
-            <Color x:Key="Grey">#e5e5e5</Color>
-            <Color x:Key="DarkGrey">#3d3d3d</Color>
-            <Color x:Key="White">White</Color>
-
-            <OnPlatform x:Key="TopMarginForiOS" x:TypeArguments="xfc:GridLength" iOS="1*" Android="0" WinPhone="Auto" />
-        </ResourceDictionary>
-        
-    </ContentPage.Resources>
-
 
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
@@ -32,10 +11,7 @@
             <RowDefinition Height="16*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
+    
         <StackLayout Orientation="Horizontal" IsVisible="false"
                      VerticalOptions="Fill" HorizontalOptions="Fill"
                      BackgroundColor="{StaticResource Grey}" Grid.Row="0">
@@ -48,8 +24,6 @@
             </StackLayout.Padding>
             -->
         </StackLayout>
-        
-        
         
         <!-- top menu (title) -->
         <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" Padding="10" Grid.Row="1">
