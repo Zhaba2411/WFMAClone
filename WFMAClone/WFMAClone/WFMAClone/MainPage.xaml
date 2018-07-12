@@ -4,44 +4,39 @@
              x:Class="WFMAClone.MainPage"
              Title="Title">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!-- background app color -->
-            <Color x:Key="Pink">#c51162</Color>
-            <Color x:Key="DarkPink">#b00020</Color>
-            <Color x:Key="Red">#fd1b31</Color>
-
-            <Color x:Key="Orange">#f98e02</Color>
-
-            <!-- greys -->
-            <Color x:Key="Grey">#e5e5e5</Color>
-            <Color x:Key="DarkGrey">#3d3d3d</Color>
-            <Color x:Key="White">White</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
-
-    <Grid>
+    <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="8*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="{StaticResource TopMarginForiOS}" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="16*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
+    
+        <StackLayout Orientation="Horizontal" IsVisible="false"
+                     VerticalOptions="Fill" HorizontalOptions="Fill"
+                     BackgroundColor="{StaticResource Grey}" Grid.Row="0">
+            <!--
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,20,0,0" />
+                    <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+                </OnPlatform>
+            </StackLayout.Padding>
+            -->
+        </StackLayout>
+        
         <!-- top menu (title) -->
-        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" Padding="10" Grid.Row="0">
+        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" Padding="10" Grid.Row="1">
             <Label Text="Task List" VerticalOptions="Center" FontSize="Small" TextColor="{StaticResource White}" />
         </StackLayout>
         
         <!-- list of tasks -->
-        <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true" Margin="0,10" SeparatorVisibility="None" Grid.Row="1">
+        <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true"
+                  Margin="0,10" SeparatorVisibility="None" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame BorderColor="{StaticResource Grey}" BackgroundColor="White" Margin="5" Padding="10" HasShadow="true">
+                        <Frame BorderColor="{StaticResource Grey}" BackgroundColor="White" Margin="5,10" Padding="10" HasShadow="true">
                             <StackLayout Orientation="Horizontal">
                                 <StackLayout Orientation="Vertical" Spacing="0">
                                     <StackLayout Orientation="Horizontal">
@@ -80,18 +75,21 @@
         <!-- filters -->
         <DatePicker x:Name="picker" IsVisible="false" DateSelected="DatePicker_OnDateSelected"/>
         
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" BackgroundColor="{StaticResource Red}" 
-                        Margin="0" Padding="0" Spacing="-12" Grid.Row="2">
-            <Button Image="calendar.png" Scale="0.5"
-                    Margin="0" BorderWidth="0" BackgroundColor="Transparent"
+        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" 
+                        Margin="0" Padding="0" Grid.Row="3" >
+            <Button Image="calendar.png"
+                    Margin="2" BackgroundColor="Transparent"
+                    HorizontalOptions="Start" VerticalOptions="FillAndExpand"
                     Clicked="OnDateFilterButtonClicked"/>
-            <Button Image="filter.png" Scale="0.5" 
-                    Margin="0" BorderWidth="0" BackgroundColor="Transparent"
+            <Button Image="filter.png"
+                    Margin="2" BorderWidth="0" BackgroundColor="Transparent"
+                    HorizontalOptions="Start" VerticalOptions="FillAndExpand"
                     Clicked="OnQuickFilterButtonClicked"/>
-            <Button Image="clear_button.png" Scale="0.5"
-                    Margin="0" BorderWidth="0" BackgroundColor="Transparent"
+            <Button Image="clear_button.png"
+                    Margin="2" BorderWidth="0" BackgroundColor="Transparent"
+                    HorizontalOptions="Start" VerticalOptions="FillAndExpand"
                     Clicked="OnRemoveFilterButtonClicked"/>
-            <BoxView HorizontalOptions="EndAndExpand" />
+            <BoxView HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>
 
