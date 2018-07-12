@@ -17,82 +17,83 @@
             <Color x:Key="Grey">#e5e5e5</Color>
             <Color x:Key="DarkGrey">#3d3d3d</Color>
             <Color x:Key="White">White</Color>
-
-            <!--
-            <OnPlatform x:Key="onplat"
-                    x:TypeArguments="Double">
-                <On Platform="iOS" Value="8" />
-                <On Platform="Android" Value="3" />
-            </OnPlatform>
-            -->
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <!-- top menu (title) -->
-            <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" Padding="10">
-                <Label Text="Task List" VerticalOptions="Center" FontSize="Small" TextColor="{StaticResource White}" />
-            </StackLayout>
 
-            <!-- list of tasks -->
-            <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true" Margin="0,10" SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame BorderColor="{StaticResource Grey}" BackgroundColor="White" Margin="5" Padding="10" HasShadow="true">
-                                <StackLayout Orientation="Horizontal">
-                                    <StackLayout Orientation="Vertical" Spacing="0">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding JobId}" FontAttributes="Bold" TextColor="{Binding Color}"  FontSize="Small" />
-                                            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{Binding Color}"  FontSize="Small" />
-                                        </StackLayout>
-                                        
-                                        <Label Text="{Binding JobType}" FontSize="Small" TextColor="{StaticResource DarkGrey}" />
-                                        
-                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="End">
-                                            <Label Text="Due Date" FontSize="Micro"  TextColor="{StaticResource DarkGrey}" />
-                                            <Label Text="{Binding ShortDate}" FontSize="Micro" TextColor="{StaticResource DarkGrey}" />
-                                        </StackLayout>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- top menu (title) -->
+        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Red}" Padding="10" Grid.Row="0">
+            <Label Text="Task List" VerticalOptions="Center" FontSize="Small" TextColor="{StaticResource White}" />
+        </StackLayout>
+        
+        <!-- list of tasks -->
+        <ListView x:Name="listView" ItemSelected="OnItemSelected" HasUnevenRows ="true" Margin="0,10" SeparatorVisibility="None" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="{StaticResource Grey}" BackgroundColor="White" Margin="5" Padding="10" HasShadow="true">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" Spacing="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding JobId}" FontAttributes="Bold" TextColor="{Binding Color}"  FontSize="Small" />
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{Binding Color}"  FontSize="Small" />
                                     </StackLayout>
 
-                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
-                                        <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>
+                                    <Label Text="{Binding JobType}" FontSize="Small" TextColor="{StaticResource DarkGrey}" />
 
-                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
-                                            <Label Text="Priority: " FontSize="Micro"></Label>
-                                            <Label Text="{Binding TaskPriority}" FontSize="Micro"></Label>
-                                        </StackLayout>
-                                    </StackLayout>
-
-                                    <StackLayout  Orientation="Vertical" VerticalOptions="FillAndExpand">
-                                        <Frame x:Name="statusColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Binding Color}" Margin="2" Padding="5" HasShadow="false"></Frame>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="End">
+                                        <Label Text="Due Date" FontSize="Micro"  TextColor="{StaticResource DarkGrey}" />
+                                        <Label Text="{Binding ShortDate}" FontSize="Micro" TextColor="{StaticResource DarkGrey}" />
                                     </StackLayout>
                                 </StackLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+
+                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                    <Label Text="{Binding Status}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"></Label>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                                        <Label Text="Priority: " FontSize="Micro"></Label>
+                                        <Label Text="{Binding TaskPriority}" FontSize="Micro"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout  Orientation="Vertical" VerticalOptions="FillAndExpand">
+                                    <Frame x:Name="statusColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Binding Color}" Margin="2" Padding="5" HasShadow="false"></Frame>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
-            <!-- filters -->
-            <DatePicker x:Name="picker" IsVisible="false" DateSelected="DatePicker_OnDateSelected"/>
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" BackgroundColor="{StaticResource Red}" 
-                        Margin="0" Padding="0" Spacing="-12">
-                <Button Image="calendar.png" Scale="0.5"
+        <!-- filters -->
+        <DatePicker x:Name="picker" IsVisible="false" DateSelected="DatePicker_OnDateSelected"/>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" BackgroundColor="{StaticResource Red}" 
+                        Margin="0" Padding="0" Spacing="-12" Grid.Row="2">
+            <Button Image="calendar.png" Scale="0.5"
                     Margin="0" BorderWidth="0" BackgroundColor="Transparent"
                     Clicked="OnDateFilterButtonClicked"/>
-                <Button Image="filter.png" Scale="0.5" 
+            <Button Image="filter.png" Scale="0.5" 
                     Margin="0" BorderWidth="0" BackgroundColor="Transparent"
                     Clicked="OnQuickFilterButtonClicked"/>
-                <Button Image="clear_button.png" Scale="0.5"
+            <Button Image="clear_button.png" Scale="0.5"
                     Margin="0" BorderWidth="0" BackgroundColor="Transparent"
                     Clicked="OnRemoveFilterButtonClicked"/>
-                <BoxView HorizontalOptions="EndAndExpand"></BoxView>
-            </StackLayout>
+            <BoxView HorizontalOptions="EndAndExpand" />
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
+
+
 </ContentPage>
