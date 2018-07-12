@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,14 +22,27 @@ namespace WFMAClone
             Console.WriteLine(((TaskViewModel) BindingContext).Task.Id);
         }
 
-        void OnAcceptButtonClicked(object sender, EventArgs e){
-        }
-
         void OnSaveButtonClicked(object sender, EventArgs e){
         }
 
         void OnFinalizeButtonClicked(object sender, EventArgs e){
+            RestService restService = new RestService();
+            int id = ((TaskViewModel)BindingContext).Task.Id;
+            restService.FinalizeTask(id);
         }
+
+
+        void OnAcceptButtonClicked(object sender, EventArgs e)
+        {
+            RestService restService = new RestService();
+            int id = ((TaskViewModel)BindingContext).Task.Id;
+            restService.AcceptTask(id);
+        }
+
+        void OnAddButtonClicked(object sender, EventArgs e)
+        {
+        }
+
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WFMAClone
@@ -8,12 +9,12 @@ namespace WFMAClone
 	{
         TaskViewModel Task;
 
+
         public MyTaskPage (int id)
 		{
 			InitializeComponent ();
             Task = new TaskViewModel();
             Task.getById(id);
-            BindingContext = this;
         }
 
         protected override void OnAppearing() {
@@ -23,5 +24,6 @@ namespace WFMAClone
         /*
         async void OnNavigateButtonClicked(object sender, EventArgs e)         {             await Navigation.PopModalAsync();         }
         */
+
     }
 }
