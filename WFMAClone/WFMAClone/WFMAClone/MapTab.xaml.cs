@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Esri.ArcGISRuntime.Mapping;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WFMAClone
@@ -14,8 +15,9 @@ namespace WFMAClone
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            BindingContext = new TaskViewModel();
+            Map myMap = new Map(BasemapType.LightGrayCanvasVector,45.8010897, 15.9315005,16);
+
+            MyMapView.Map = myMap;
         }
     }
 

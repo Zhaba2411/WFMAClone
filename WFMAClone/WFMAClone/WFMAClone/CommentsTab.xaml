@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 x:Class="WFMAClone.CommentsTab"
-			 Title="Comments">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WFMAClone.CommentsTab"
+             Title="Comments">
 <StackLayout>
     <ListView ItemsSource="{Binding Task.Comments}" HasUnevenRows ="true" SeparatorVisibility="None" >
         <ListView.ItemTemplate>
@@ -20,10 +20,10 @@
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="8*" />
                             </Grid.ColumnDefinitions>
-                            <Frame CornerRadius="30" BackgroundColor="#d69c15" WidthRequest="23" HeightRequest="23" IsClippedToBounds="True" VerticalOptions="Center" HorizontalOptions="Center" Grid.RowSpan="3" Grid.Column="0">
+                            <Frame CornerRadius="30" BackgroundColor="#d69c15" WidthRequest="25" HeightRequest="25" IsClippedToBounds="True" VerticalOptions="Center" HorizontalOptions="Center" Grid.RowSpan="3" Grid.Column="0">
                                 <Label Text = "{Binding Initials}" TextColor="White" FontSize="Medium"></Label>
                             </Frame>
-                            <Label Text="{Binding WorkerName}"   FontSize="Default" Margin="0" HorizontalTextAlignment="Center" Grid.Column="1" Grid.Row="0"></Label>
+                            <Label Text="{Binding WorkerName}" FontSize="Default" Margin="0" HorizontalTextAlignment="Center" Grid.Column="1" Grid.Row="0"></Label>
                             <Label Text="{Binding CommentText}" FontSize="Small" Margin="0" HorizontalTextAlignment="Center" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="1"></Label>
                             <Label Text="{Binding DateEntered}" FontSize="Micro" Margin="0" HorizontalTextAlignment="Center" TextColor="#3d3d3d" Grid.Column="1" Grid.Row="2"></Label>
                         </Grid>
@@ -32,22 +32,25 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
-    <Grid BackgroundColor="Red"> 
+        <Grid BackgroundColor="Red"> 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
 
         <Button x:Name="acceptButton" Text="Accept" Margin="5" TextColor="White" Grid.Column="0" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnAcceptButtonClicked"/>
         <Button x:Name="saveButton" Text="Save" Margin="5" TextColor="White" Grid.Column="1"  BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnSaveButtonClicked"/>
         <Button x:Name="finalizeButton" Text="Finalize" TextColor="White"  Margin="5" Grid.Column="2" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnFinalizeButtonClicked"/>
+        <Button x:Name="addButton" FontSize="Large" Text="+" TextColor="White"  Margin="5" Grid.Column="4" BackgroundColor="Transparent" VerticalOptions="Center" Clicked="OnAddButtonClicked"/>
+
     </Grid>
+
 </StackLayout>
     
 </ContentPage>

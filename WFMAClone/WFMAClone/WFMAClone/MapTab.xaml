@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-			 x:Class="WFMAClone.MapTab"
-			 Title="Map">
-
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Task.Priority}" />
-            <Label Text="{Binding Task.Id}" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:esriUI="clr-namespace:Esri.ArcGISRuntime.Xamarin.Forms;assembly=Esri.ArcGISRuntime.Xamarin.Forms" 
+             x:Class="WFMAClone.MapTab" 
+             Title="Map">
+    <Grid>
+        <esriUI:MapView x:Name="MyMapView" />
+    </Grid>
 </ContentPage>
