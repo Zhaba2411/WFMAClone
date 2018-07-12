@@ -6,7 +6,7 @@ namespace WFMAClone
 {
     public partial class MainPage : ContentPage
     {
-        private static List<MyTask> notFilteredTaskList = new List<MyTask>();
+        private static List<MyTask> fullTaskList = new List<MyTask>();
 
         public MainPage() {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace WFMAClone
             MyTaskList taskList = await restService.getTaskListAsync();
 
             if (taskList.Tasks != null) {
-                notFilteredTaskList = taskList.Tasks;
+                fullTaskList = taskList.Tasks;
                 listView.ItemsSource = taskList.Tasks;
             }
             else {
@@ -40,7 +40,7 @@ namespace WFMAClone
 
         void DatePicker_OnDateSelected(object sender, DateChangedEventArgs e) {
             List<MyTask> filteredList = new List<MyTask>();
-            foreach (var Task in notFilteredTaskList) {
+            foreach (var Task in fullTaskList) {
                 if (Task.DueDate.Date.Equals(e.NewDate)) {
                     Console.WriteLine("Task date is same!");
                     filteredList.Add(Task);
@@ -56,7 +56,7 @@ namespace WFMAClone
 			Console.WriteLine(action);
 			if (!(String.IsNullOrWhiteSpace(action) || action.Equals("Cancel"))) {
 				List<MyTask> filteredList = new List<MyTask>();
-				foreach (var task in notFilteredTaskList) {
+				foreach (var task in fullTaskList) {
 					if (task.Status.Equals(action)) {
 						filteredList.Add(task);
 					}
@@ -66,7 +66,7 @@ namespace WFMAClone
 		}
 
 		void OnRemoveFilterButtonClicked(object sender, EventArgs e) {
-            listView.ItemsSource = notFilteredTaskList;
+            listView.ItemsSource = fullTaskList;
         }
     }
 }
