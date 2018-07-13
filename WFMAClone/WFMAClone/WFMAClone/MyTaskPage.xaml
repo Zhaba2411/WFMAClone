@@ -4,26 +4,10 @@
             xmlns:local="clr-namespace:WFMAClone;assembly=WFMAClone"
             x:Class="WFMAClone.MyTaskPage">
 
-    <!--
-     xmlns:behaviors="clr-namespace:WFMAClone"
-    
-    <TabbedPage.Behaviors>
-        <behaviors:TabbedPageNavigationBehavior />
-    </TabbedPage.Behaviors>
-    -->
     <TabbedPage.Children>
         <local:CommentsTab />
         <local:DocumentsTab />
         <local:MapTab />
     </TabbedPage.Children>
     
-   
-    <!--
-    <NavigationPage Title="TaskPage">
-        <x:Arguments>
-            <local:DocumentsTab />
-        </x:Arguments>
-    </NavigationPage>
-    -->
-
 </TabbedPage>

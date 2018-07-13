@@ -9,38 +9,28 @@ namespace WFMAClone
     {
         Document Document;
 
-        public DocumentDetailsPage(Document doc)
-        {
+        public DocumentDetailsPage(Document doc) {
             InitializeComponent();
+
             this.Document = doc;
             BindingContext = Document;
 
             // handle top bar tap:
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) => {
-                OnNavigateButtonClicked(s, e);
+                OnBackButtonClicked(s, e);
             };
             backButton.GestureRecognizers.Add(tapGestureRecognizer);
-
-            // bottom menu - delete button:
-            tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += (s, e) => {
-                // accept (?) action
-                Console.WriteLine("accept doc");
-            };
-            AcceptButton.GestureRecognizers.Add(tapGestureRecognizer);
-
-            // bottom menu - delete button:
-            tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += (s, e) => {
-                // delete this document
-                Console.WriteLine("delete doc");
-            };
-            DeleteButton.GestureRecognizers.Add(tapGestureRecognizer);
-
         }
 
-        async void OnNavigateButtonClicked(object sender, EventArgs e) {             await Navigation.PopModalAsync();         }
+        void OnDownloadButtonClicked(object sender, EventArgs e) {
+            Console.WriteLine("Download file with id: " + Document.Id);         }
+
+        void OnDeleteButtonClicked(object sender, EventArgs e) {
+            Console.WriteLine("Delete file with id: " + Document.Id);
+        }
+
+        async void OnBackButtonClicked(object sender, EventArgs e) {             await Navigation.PopModalAsync();         }
 
     }
 }
